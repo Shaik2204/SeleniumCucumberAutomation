@@ -7,6 +7,8 @@
 # BlueJ files
 *.ctxt
 
+#
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -21,3 +23,26 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+test-output/*
+result/*
+bin/*
+*.log
+*.classpath
+*.project
+*.class
+/.settings/
+*.txt
+target/*
+*.html
+*.xml
+*.lst
+*.iml
+/target/
+/result/
+/.allure/*
+.idea/*
+.idea/*.xml
+Screenshots/*
+/allure-results/*
+
