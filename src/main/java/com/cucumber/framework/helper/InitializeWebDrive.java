@@ -9,6 +9,8 @@ import com.cucumber.framework.settings.ObjectRepo;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -123,8 +125,11 @@ public class InitializeWebDrive {
 		try {
 			if (ObjectRepo.driver != null) {
 				
-				if(scenario.isFailed())
-					scenario.log(new GenericHelper(ObjectRepo.driver).takeScreenShot(scenario.getName()));
+				if(scenario.isFailed()) {
+					byte[] screenshot = ((TakesScreenshot) ObjectRepo.driver).getScreenshotAs(OutputType.BYTES);
+					scenario.attach(screenshot, "image/png",scenario.getName());
+					//scenario.log(new GenericHelper(ObjectRepo.driver).takeScreenShot(scenario.getName()));
+				}
 			}
 		} catch (Exception e) {
 			oLog.error(e.getMessage());
